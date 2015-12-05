@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace DiceGuide.Models
 {
     class Item : SerializableReference
     {
-
         private string _name = string.Empty;
         private string _type = string.Empty;
         private uint? _weight = null;
@@ -22,15 +16,8 @@ namespace DiceGuide.Models
         /// </summary>
         public string Name
         {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-                OnPropertyChanged("Name");
-            }
+            get { return _name; }
+            set { _name = value; OnPropertyChanged("Name"); }
         }
 
         /// <summary>
@@ -38,15 +25,8 @@ namespace DiceGuide.Models
         /// </summary>
         public string Type
         {
-            get
-            {
-                return _type;
-            }
-            set
-            {
-                _type = value;
-                OnPropertyChanged("Type");
-            }
+            get { return _type; }
+            set { _type = value; OnPropertyChanged("Type"); }
         }
 
         /// <summary>
@@ -54,15 +34,8 @@ namespace DiceGuide.Models
         /// </summary>
         public uint? Weight
         {
-            get
-            {
-                return _weight;
-            }
-            set
-            {
-                _weight = value;
-                OnPropertyChanged("Weight");
-            }
+            get { return _weight; }
+            set { _weight = value; OnPropertyChanged("Weight"); }
         }
 
         /// <summary>
@@ -70,15 +43,8 @@ namespace DiceGuide.Models
         /// </summary>
         public string Text
         {
-            get
-            {
-                return _text;
-            }
-            set
-            {
-                _text = value;
-                OnPropertyChanged("Text");
-            }
+            get { return _text; }
+            set { _text = value; OnPropertyChanged("Text"); }
         }
 
         /// <summary>
@@ -89,7 +55,7 @@ namespace DiceGuide.Models
         /// <summary>
         /// Creates a new item from import data.
         /// </summary>
-        /// <param name="node"></param>
+        /// <param name="node">The XmlNode containint the item data.</param>
         public Item(XmlNode node)
         {
             Debug.Assert(node.Name == "item", "Initializing item with wrong node type!");
@@ -103,14 +69,7 @@ namespace DiceGuide.Models
             _text = GetStringFromNode(node, "text", "\n");
         }
 
-        public override string ToString()
-        {
-            return string.Format("{0}: {1} item, {2} lbs.\n{3}", Name, Type, Weight.HasValue ? Weight.Value.ToString() : "?", Text);
-        }
-
-        public override void WriteToXML(XmlWriter writer)
-        {
-            throw new NotImplementedException();
-        }
+        public override string ToString() => $"{Name}: {Type} item, {Weight ?? 0} lbs.\n{Text}";
+        public override void WriteToXML(XmlWriter writer) => new NotImplementedException();
     }
 }
