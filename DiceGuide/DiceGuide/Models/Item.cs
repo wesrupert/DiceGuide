@@ -103,14 +103,14 @@ namespace DiceGuide.Models
             _text = GetStringFromNode(node, "text", "\n");
         }
 
-        public override bool WriteObject(XmlWriter writer)
-        {
-            throw new NotImplementedException();
-        }
-
         public override string ToString()
         {
             return string.Format("{0}: {1} item, {2} lbs.\n{3}", Name, Type, Weight.HasValue ? Weight.Value.ToString() : "?", Text);
+        }
+
+        public override void WriteToXML(XmlWriter writer)
+        {
+            throw new NotImplementedException();
         }
     }
 }

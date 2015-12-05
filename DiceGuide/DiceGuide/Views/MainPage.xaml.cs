@@ -24,7 +24,6 @@ namespace DiceGuide
     {
         public MainPage()
         {
-            this.InitializeComponent();
         }
     }
 }
