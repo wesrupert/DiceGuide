@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Xml;
 
@@ -43,7 +45,7 @@ namespace DiceGuide.Models
         {
             bool matched = false;
             uint total = 0;
-            foreach (string s in (from XmlNode n in node.ChildNodes where n.Name == "weight" select n.FirstChild.Value))
+            foreach (string s in (from XmlNode n in node.ChildNodes where n.Name == target select n.FirstChild.Value))
             {
                 uint w;
                 if (uint.TryParse(s, out w))
@@ -65,7 +67,7 @@ namespace DiceGuide.Models
         {
             bool matched = false;
             int total = 0;
-            foreach (string s in (from XmlNode n in node.ChildNodes where n.Name == "weight" select n.FirstChild.Value))
+            foreach (string s in (from XmlNode n in node.ChildNodes where n.Name == target select n.FirstChild.Value))
             {
                 int w;
                 if (int.TryParse(s, out w))

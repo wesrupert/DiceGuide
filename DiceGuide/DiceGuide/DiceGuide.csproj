@@ -93,6 +93,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\SerializableReference.cs" />
     <Compile Include="App.xaml.cs">
