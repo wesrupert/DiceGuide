@@ -94,8 +94,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Character.cs" />
+    <Compile Include="Models\Class.cs" />
     <Compile Include="Models\Item.cs" />
-    <Compile Include="Models\SerializableReference.cs" />
+    <Compile Include="Models\Race.cs" />
+    <Compile Include="Models\SerializableNotifier.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>

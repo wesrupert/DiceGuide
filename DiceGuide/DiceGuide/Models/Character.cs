@@ -9,15 +9,12 @@ namespace DiceGuide.Models
     class Character : SerializableNotifier
     {
         /// <summary>The character's race</summary>
-        public string Race { get { return _race; } set { SetField(ref _race, value); } }
-        protected string _race = string.Empty;
+        public Race Race { get { return _race; } set { SetField(ref _race, value); } }
+        protected Race _race = new Race();
 
         /// <summary>The character's classes</summary>
-        public List<Tuple<string, uint>> Classes { get { return _classes; } set { SetField(ref _classes, value); } }
-        protected List<Tuple<string, uint>> _classes = new List<Tuple<string, uint>>();
-
-        /// <summary>Creates an empty Character.</summary>
-        public Character() { }
+        public List<Class> Classes { get { return _classes; } set { SetField(ref _classes, value); } }
+        protected List<Class> _classes = new List<Class>();
 
         /// <summary>
         /// Creates a new character from import data.
@@ -32,7 +29,7 @@ namespace DiceGuide.Models
 
             _name = GetStringFromNode(node, "name");
             _description = GetStringFromNode(node, "bio", "\n");
-            _race = GetStringFromNode(node, "race");
+            _race.Name = GetStringFromNode(node, "race");
             _classes = GetClassesFromNode(node);
         }
 
@@ -42,14 +39,16 @@ namespace DiceGuide.Models
         /// <param name="node">The node containing the desired information.</param>
         /// <param name="target">The target information type.</param>
         /// <returns>The string value containing the relevant match of target in node.</returns>
-        protected static List<Tuple<string, uint>> GetClassesFromNode(XmlNode node)
+        protected static List<Class> GetClassesFromNode(XmlNode node)
         {
-            return new List<Tuple<string, uint>>(
+            return new List<Class>(
                 from XmlNode n in node.ChildNodes
                     where n.Name == "class"
-                    select Tuple.Create<string, uint>(
-                        GetStringFromNode(n, "name"),
-                        GetUnsignedFromNode(n, "level") ?? 0));
+                    select new Class()
+                    {
+                        Name = GetStringFromNode(n, "name"),
+                        Level = GetUnsignedFromNode(n, "level"),
+                    });
         }
 
         public override string ToString() => $"{Name}: {Race} ({string.Join(", ", Classes)})\n{Description}";
