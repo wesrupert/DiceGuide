@@ -1,23 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Xml;
 
 namespace DiceGuide.Models
 {
-    abstract class SerializableReference : INotifyPropertyChanged
+    abstract class SerializableNotifier : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>The object's name.</summary>
+        public string Name { get { return _name; } set { SetField(ref _name, value); } }
+        protected string _name = string.Empty;
+
+        /// <summary>The object's description.</summary>
+        public string Description { get { return _description; } set { SetField(ref _description, value); } }
+        protected string _description = string.Empty;
+
+        /// <summary>Create a new SerializableNotifier.</summary>
+        protected SerializableNotifier() { }
+
+        /// <summary>
+        /// Create a new SerializableNotifier.
+        /// </summary>
+        /// <param name="name">The object's name.</param>
+        /// <param name="description">The object's description.</param>
+        protected SerializableNotifier(string name, string description)
+        {
+            _name = name;
+            _description = description;
+        }
 
         /// <summary>
         /// Writes the object to the XML writer.
         /// </summary>
         /// <param name="writer">The writer to pass the object into.</param>
         public abstract void WriteToXML(XmlWriter writer);
-
-        /// <inheritdoc />
-        public abstract override string ToString();
 
         /// <summary>
         /// Gets the string value from the children of the given node.
@@ -80,12 +99,19 @@ namespace DiceGuide.Models
         }
 
         /// <summary>
-        /// Property changed event caller.
+        /// Setter for INotifyPropertyChanged properties.
         /// </summary>
-        /// <param name="propertyName">The name of the changed property.</param>
-        protected void OnPropertyChanged(string propertyName)
+        /// <param name="field">The field to set.</param>
+        /// <param name="value">The value to set the field to.</param>
+        /// <param name="propertyName">The name of the property being assigned to.</param>
+        /// <returns>True if the value was set, otherwise false if the value was identical to the previous one.</returns>
+        protected bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
         {
+            if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+
+            field = value;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            return true;
         }
     }
 }

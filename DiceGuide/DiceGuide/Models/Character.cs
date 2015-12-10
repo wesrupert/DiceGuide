@@ -2,46 +2,19 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace DiceGuide.Models
 {
-    class Character : SerializableReference
+    class Character : SerializableNotifier
     {
-        protected string _name = string.Empty;
-        protected string _race = string.Empty;
-        protected List<Tuple<string, uint>> _classes = new List<Tuple<string, uint>>();
-        protected string _bio = string.Empty;
-
-        /// <summary>The character's name</summary>
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; OnPropertyChanged("Name"); }
-        }
-
         /// <summary>The character's race</summary>
-        public string Race
-        {
-            get { return _race; }
-            set { _race = value; OnPropertyChanged("Race"); }
-        }
+        public string Race { get { return _race; } set { SetField(ref _race, value); } }
+        protected string _race = string.Empty;
 
         /// <summary>The character's classes</summary>
-        public List<Tuple<string, uint>> Classes
-        {
-            get { return _classes; }
-            set { _classes = value; OnPropertyChanged("Classes"); }
-        }
-
-        /// <summary>The character's bio</summary>
-        public string Bio
-        {
-            get { return _bio; }
-            set { _bio = value; OnPropertyChanged("Bio"); }
-        }
+        public List<Tuple<string, uint>> Classes { get { return _classes; } set { SetField(ref _classes, value); } }
+        protected List<Tuple<string, uint>> _classes = new List<Tuple<string, uint>>();
 
         /// <summary>Creates an empty Character.</summary>
         public Character() { }
@@ -58,9 +31,9 @@ namespace DiceGuide.Models
                 return;
 
             _name = GetStringFromNode(node, "name");
+            _description = GetStringFromNode(node, "bio", "\n");
             _race = GetStringFromNode(node, "race");
             _classes = GetClassesFromNode(node);
-            _bio = GetStringFromNode(node, "bio", "\n");
         }
 
         /// <summary>
@@ -79,7 +52,7 @@ namespace DiceGuide.Models
                         GetUnsignedFromNode(n, "level") ?? 0));
         }
 
-        public override string ToString() => "";
+        public override string ToString() => $"{Name}: {Race} ({string.Join(", ", Classes)})\n{Description}";
         public override void WriteToXML(XmlWriter writer) => new NotImplementedException();
     }
 }
