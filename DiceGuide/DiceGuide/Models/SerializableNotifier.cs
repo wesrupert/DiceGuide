@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Xml;
 
 namespace DiceGuide.Models
 {
-    abstract class SerializableNotifier : INotifyPropertyChanged
+    public abstract class SerializableNotifier : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

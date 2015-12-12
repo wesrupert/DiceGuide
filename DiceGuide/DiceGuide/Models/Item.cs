@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace DiceGuide.Models
 {
-    class Item : SerializableNotifier
+    public class Item : SerializableNotifier
     {
         /// <summary>The XML key used to retrieve instances from XML files.</summary>
         private const string XmlKey = "item";

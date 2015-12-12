@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Xml;
 
 namespace DiceGuide.Models
 {
-    class Character : SerializableNotifier
+    public class Character : SerializableNotifier
     {
         /// <summary>The XML key used to retrieve instances from XML files.</summary>
         private const string XmlKey = "character";
+
+        public uint Level { get { return (uint)_classes.Sum((c) => c.Level ?? 0);} }
 
         /// <summary>The character's race.</summary>
         public Race Race { get { return _race; } set { SetField(ref _race, value); } }

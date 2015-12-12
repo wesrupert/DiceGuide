@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace DiceGuide.Models
 {
-    class Race : SerializableNotifier
+    public class Race : SerializableNotifier
     {
         /// <summary>The XML key used to retrieve instances from XML files.</summary>
         private const string XmlKey = "race";

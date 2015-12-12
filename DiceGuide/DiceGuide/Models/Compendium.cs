@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
+using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 using System.Xml;
 
@@ -38,22 +37,47 @@ namespace DiceGuide.Models
         public ObservableCollection<Item> Items { get; private set; } = new ObservableCollection<Item>();
 
         /// <summary>
-        /// Loads the compendium with data in the given XmlNode.
+        /// Loads the compendium with data in the given xml data.
         /// </summary>
-        /// <param name="node">The node containing the desired information.</param>
-        public void LoadCompendium(XmlNode node)
+        /// <param name="path">The path the the file to load.</param>
+        public async Task<bool> LoadCompendium(string path)
         {
+            XmlNode compendium = null;
+            await Task.Run(() =>
+            {
+                try
+                {
+                    using (XmlReader reader = XmlReader.Create(path))
+                    {
+                        XmlDocument document = new XmlDocument();
+                        document.Load(reader);
+                        compendium = document.GetElementsByTagName("compendium")[0];
+                    }
+                }
+                catch (FileNotFoundException)
+                {
+                    Debug.Fail($"File {path} not found!");
+                }
+            });
+
+            if (compendium == null)
+            {
+                return false;
+            }
+
             Characters.Clear();
-            Character.GetCharactersFromNode(node).ForEach((c) => Characters.Add(c));
+            Character.GetCharactersFromNode(compendium).ForEach((c) => Characters.Add(c));
 
             Races.Clear();
-            Race.GetRacesFromNode(node).ForEach((r) => Races.Add(r));
+            Race.GetRacesFromNode(compendium).ForEach((r) => Races.Add(r));
 
             Classes.Clear();
-            Class.GetClassesFromNode(node).ForEach((c) => Classes.Add(c));
+            Class.GetClassesFromNode(compendium).ForEach((c) => Classes.Add(c));
 
             Items.Clear();
-            Item.GetItemsFromNode(node).ForEach((i) => Items.Add(i));
+            Item.GetItemsFromNode(compendium).ForEach((i) => Items.Add(i));
+
+            return true;
         }
 
         public override void WriteToXML(XmlWriter writer) => new NotImplementedException();
