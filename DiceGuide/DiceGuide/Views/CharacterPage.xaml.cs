@@ -13,17 +13,16 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
 namespace DiceGuide
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// The page that holds a character's information.
     /// </summary>
     public sealed partial class CharacterPage : Page
     {
         public CharacterPage()
         {
+            this.InitializeComponent();
         }
     }
 }

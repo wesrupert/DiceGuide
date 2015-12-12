@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Xml;
@@ -14,9 +16,9 @@ namespace DiceGuide.Models
         public string Name { get { return _name; } set { SetField(ref _name, value); } }
         protected string _name = string.Empty;
 
-        /// <summary>The object's description.</summary>
-        public string Description { get { return _description; } set { SetField(ref _description, value); } }
-        protected string _description = string.Empty;
+        /// <summary>The object's text content.</summary>
+        public string Text { get { return _text; } set { SetField(ref _text, value); } }
+        protected string _text = string.Empty;
 
         /// <summary>Create a new SerializableNotifier.</summary>
         protected SerializableNotifier() { }
@@ -24,12 +26,17 @@ namespace DiceGuide.Models
         /// <summary>
         /// Create a new SerializableNotifier.
         /// </summary>
-        /// <param name="name">The object's name.</param>
-        /// <param name="description">The object's description.</param>
-        protected SerializableNotifier(string name, string description)
+        /// <param name="node">The XML node containing the desired data.</param>
+        /// <param name="xmlkey">The XML key used to retrieve instances from XML files.</param>
+        protected SerializableNotifier(XmlNode node, string xmlkey)
         {
-            _name = name;
-            _description = description;
+            Debug.Assert(node.Name == xmlkey, $"Initializing {xmlkey} with wrong node type!");
+            Debug.Assert(node.HasChildNodes, $"Initializing {xmlkey} with empty node!");
+            if (node.Name != xmlkey || !node.HasChildNodes)
+                return;
+
+            _name = GetStringFromNode(node, "name");
+            _text = GetStringFromNode(node, "text", "\n");
         }
 
         /// <summary>
@@ -110,8 +117,17 @@ namespace DiceGuide.Models
             if (EqualityComparer<T>.Default.Equals(field, value)) return false;
 
             field = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            NotifyPropertyChanged(propertyName);
             return true;
+        }
+
+        /// <summary>
+        /// Caller for the PropertyChanged event.
+        /// </summary>
+        /// <param name="propertyName">The name of the changed property.</param>
+        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<compendium version="5" auto_indent="YES">
+  <character>
+    <name>Bart</name>
+    <text>Bart is a character.</text>
+
+    <item>
+      <name>Gold (gp)</name>
+      <type>$</type>
+      <weight>0.02</weight>
+      <text>Common coins come in several different denominations based on the relative worth of the metal from which they are made. The three most common coins are the gold piece (gp), the silver piece (sp), and the copper piece (cp).</text>
+      <text>With one gold piece, a character can buy a belt pouch, 50 feet of good rope, or a goat. A skilled (but not exceptional) artisan can earn one gold piece a day. The gold piece is the standard unit of measure for wealth, even if the coin itself is not commonly used. When merchants discuss deals that involve goods or services worth hundreds or thousands of gold pieces, the transactions don't usually involve the exchange of individual coins. Rather, the gold piece is a standard measure of value, and the actual exchange is in gold bars, letters of credit, or valuable goods.</text>
+      <text>One gold piece is worth ten silver pieces, the most prevalent coin among commoners. A silver piece buys a laborer's work for a day, a flask of lamp oil, or a night's rest in a poor inn.</text>
+      <text>One silver piece is worth ten copper pieces, which are common among laborers and beggars. A single copper piece buys a candle, a torch, or a piece of chalk.</text>
+      <text>In addition, unusual coins made of other precious metals sometimes appear in treasure hoards. The electrum piece (ep) and the platinum piece (pp) originate from fallen empires and lost kingdoms, and they sometimes arouse suspicion and skepticism when used in transactions. An electrum piece is worth five silver pieces, and a platinum piece is worth ten gold pieces.</text>
+      <text>A standard coin weighs about a third of an ounce, so fifty coins weigh a pound.</text>
+      <text />
+      <text>Source: Player's Handbook p. 143</text>
+    </item>
+    <item>
+      <name>Arrows</name>
+      <type>A</type>
+      <weight>0.05</weight>
+      <range></range>
+      <text>Ammunition: You can use a weapon that has the ammunition property to make a ranged attack only if you have ammunition to fire from the weapon. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack. At the end of the battle, you can recover half your expended ammunition by taking a minute to search the battlefield.</text>
+      <text>Cost: 20 for 1 gp</text>
+      <text />
+      <text>Source: Player's Handbook p. 150</text>
+    </item>
+    <item>
+      <name>Lance +1</name>
+      <type>M</type>
+      <weight>6</weight>
+      <text>	You have a +1 bonus to attack and damage rolls made with this weapon.</text>
+      <text></text>
+      <text>Reach: This weapon adds 5 feet to your reach when you attack with it.</text>
+      <text />
+      <text>Source: Dungeon Master's Guide p. 213</text>
+      <modifier category="bonus">melee attacks +1</modifier>
+      <modifier category="bonus">melee damage +1</modifier>
+      <dmg1>1d12</dmg1>
+      <dmg2></dmg2>
+      <dmgType>P</dmgType>
+      <property>R,S</property>
+      <range></range>
+    </item>
+    <item>
+      <name>Chain Mail of Force Resistance</name>
+      <type>HA</type>
+      <weight>55</weight>
+      <text>Requires Attunement</text>
+      <text>	You have resistance to force damage while you wear this armor.</text>
+      <text />
+      <text>Source: Dungeon Master's Guide p. 152</text>
+      <ac>16</ac>
+      <strength>13</strength>
+      <stealth>1</stealth>
+    </item>
+
+    <race>
+      <name>Dragonborn (Bronze)</name>
+      <size>M</size>
+      <speed>30</speed>
+      <ability>Str 2, Cha 1</ability>
+      <proficiency></proficiency>
+      <trait>
+        <name>Draconic Ancestry</name>
+        <text>You have bronze dragon ancestry.</text>
+      </trait>
+      <trait>
+        <name>Breath Weapon</name>
+        <text>You can use your action to exhale a 5 foot by 30 foot line of lightning.</text>
+        <text>When you use your breath weapon, each creature in the area of the exhalation must make a Dexterity saving throw. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level.</text>
+        <text>After you use your breath weapon, you can't use it again until you complete a short or long rest.</text>
+      </trait>
+      <trait>
+        <name>Damage Resistance</name>
+        <text>You have resistance to lightning damage.</text>
+      </trait>
+      <trait>
+        <name>Languages</name>
+        <text>You can speak, read, and write Common and Draconic. Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants.</text>
+      </trait>
+    </race>
+
+    <class>
+      <name>Barbarian</name>
+      <level>4</level>
+      <hd>12</hd>
+      <proficiency>Strength, Constitution</proficiency>
+      <spellAbility></spellAbility>
+      <autolevel level="1">
+        <feature>
+          <name>Starting Proficiencies</name>
+          <text>You are proficient with the following items, in addition to any proficiencies provided by your race or background.</text>
+          <text>Armor: light armor, medium armor, shields</text>
+          <text>Weapons: simple weapons, martial weapons</text>
+          <text>Tools: none</text>
+          <text>Skills: Choose two from Animal Handling, Athletics, Intimidation, Nature, Perception, and Survival</text>
+        </feature>
+        <feature>
+          <name>Starting Equipment</name>
+          <text>You begin play with the following equipment, in addition to any equipment provided by your background.</text>
+          <text> </text>
+          <text>&#8226; (a) a greataxe or (b) any martial melee weapon</text>
+          <text>&#8226; (a) two handaxes or (b) any simple weapon</text>
+          <text>&#8226; An explorer's pack and four javelins</text>
+          <text> </text>
+          <text>Alternatively, you may start with 2d4 x 10 gp and choose your own equipment.</text>
+        </feature>
+      </autolevel>
+
+      <autolevel level="1">
+        <slots></slots>
+        <feature>
+          <name>Rage</name>
+          <text>In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action.</text>
+          <text>While raging, you gain the following benefits if you aren't wearing heavy armor.</text>
+          <text> </text>
+          <text>&#8226; You have advantage on Strength checks and Strength saving throws.</text>
+          <text>&#8226; When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian.  At 1st level, you have a +2 bonus to damage.  Your bonus increases to +3 at 9th level and to +4 at 16th.</text>
+          <text>&#8226; You have resistance to bludgeoning, piercing, and slashing damage.</text>
+          <text> </text>
+          <text>If you are able to cast spells, you can't cast them or concentrate on them while raging.</text>
+          <text>Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven't attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action.</text>
+          <text>Once you have raged the maximum number of times for your barbarian level, you must finish a long rest before you can rage again.  You may rage 2 times at 1st level, 3 at 3rd, 4 at 6th, 5 at 12th, and 6 at 17th.</text>
+        </feature>
+        <feature>
+          <name>Unarmored Defense</name>
+          <text>While you are not wearing any armor, your Armor Class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.</text>
+        </feature>
+      </autolevel>
+
+      <autolevel level="2">
+        <slots></slots>
+        <feature>
+          <name>Reckless Attack</name>
+          <text>Starting at 2nd level, you can throw aside all concern for defense to attack with fierce desperation. When you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.</text>
+        </feature>
+        <feature>
+          <name>Danger Sense</name>
+          <text>At 2nd level, you gain an uncanny sense of when things nearby aren't as they should be, giving you an edge when you dodge away from danger.</text>
+          <text>You have advantage on Dexterity saving throws against effects that you can see, such as traps and spells. To gain this benefit, you can't be blinded, deafened, or incapacitated.</text>
+        </feature>
+      </autolevel>
+
+      <autolevel level="3">
+        <slots></slots>
+        <feature>
+          <name>Primal Path</name>
+          <text>At 3rd level, you choose a path that shapes the nature of your rage. Choose the Path of the Berserker or the Path of the Totem Warrior.</text>
+        </feature>
+        <feature optional="YES">
+          <name>Path of the Berserker</name>
+          <text>For some barbarians, rage is a means to an end &#8212; that end being violence. The Path of the Berserker is a path of untrammeled fury, slick with blood. As you enter the berserker's rage, you thrill in the chaos of battle, heedless of your own health or well-being.</text>
+        </feature>
+        <feature optional="YES">
+          <name>Frenzy (Path of the Berserker)</name>
+          <text>Starting when you choose this path at 3rd level, you can go into a frenzy when you rage. If you do so, for the duration of your rage you can make a single melee weapon attack as a bonus action on each of your turns after this one. When your rage ends, you suffer one level of exhaustion.</text>
+          <text> </text>
+          <text>Exhaustion:</text>
+          <text>Some special abilities and environmental hazards, such as starvation and the long-term effects of freezing or scorching temperatures, can lead to a special condition called exhaustion. Exhaustion is measured in six levels. An effect can give a creature one or more levels of exhaustion, as specified in the effect's description.</text>
+          <text> </text>
+          <text>Level &#8212; Effect:</text>
+          <text>1 &#8212;Disadvantage on ability checks</text>
+          <text>2 &#8212;Speed halved</text>
+          <text>3 &#8212;Disadvantage on attack rolls and saving throws</text>
+          <text>4 &#8212;Hit point maximum halved</text>
+          <text>5 &#8212;Speed reduced to 0</text>
+          <text>6 &#8212;Death</text>
+          <text> </text>
+          <text>If an already exhausted creature suffers another effect that causes exhaustion, its current level of exhaustion increases by the amount specified in the effect's description.</text>
+          <text>A creature suffers the effect of its current level of exhaustion as well as all lower levels. For example, a creature suffering level 2 exhaustion has its speed halved and has disadvantage on ability checks.</text>
+          <text>An effect that removes exhaustion reduces its level as specified in the effect's description, with all exhaustion effects ending if a creature's exhaustion level is reduced below 1.</text>
+          <text>Finishing a long rest reduces a creature's exhaustion level by 1, provided that the creature has also ingested some food and drink.</text>
+        </feature>
+        <feature optional="YES">
+          <name>Path of the Totem Warrior</name>
+          <text>The Path of the Totem Warrior is a spiritual journey, as the barbarian accepts a spirit animal as guide, protector, and inspiration. In battle, your totem spirit fills you with supernatural might, adding magical fuel to your barbarian rage.</text>
+          <text>Most barbarian tribes consider a totem animal to be kin to a particular clan. In such cases, it is unusual for an individual to have more than one totem animal spirit, though exceptions exist.</text>
+        </feature>
+        <feature optional="YES">
+          <name>Spirit Seeker (Path of the Totem Warrior)</name>
+          <text>Yours is a path that seeks attunement with the natural world, giving you a kinship with beasts. At 3rd level when you adopt this path, you gain the ability to cast the beast sense and speak with animals spells, but only as rituals, as described in chapter 10.</text>
+        </feature>
+        <feature optional="YES">
+          <name>Totem Spirit (Path of the Totem Warrior)</name>
+          <text>At 3rd level, when you adopt this path, you choose a totem spirit and gain its feature. You must make or acquire a physical totem object- an amulet or similar adornment &#8212; that incorporates fur or feathers, claws, teeth, or b ones of the totem animal. At your option, you also gain minor physical attributes that are reminiscent of your totem spirit. For example, if you have a bear totem spirit, you might be unusually hairy and thick-skinned, or if your totem is the eagle, your eyes turn bright yellow.</text>
+          <text>Your totem animal might be an animal related to those listed here but more appropriate to your homeland. For example, you could choose a hawk or vulture in place of an eagle.</text>
+        </feature>
+        <feature optional="YES">
+          <name>Totem Spirit: Bear</name>
+          <text>While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.</text>
+        </feature>
+        <feature optional="YES">
+          <name>Totem Spirit: Eagle</name>
+          <text>While you're raging and aren't wearing heavy armor, other creatures have disadvantage on opportunity attack rolls against you, and you can use the Dash action as a bonus action on your turn. The spirit of the eagle makes you into a predator who can weave through the fray with ease.</text>
+        </feature>
+        <feature optional="YES">
+          <name>Totem Spirit: Wolf</name>
+          <text>While you're raging, your friends have advantage on melee attack rolls against any creature within 5 feet of you that is hostile to you. The spirit of the wolf makes you a leader of hunters.</text>
+        </feature>
+      </autolevel>
+
+      <autolevel level="4">
+        <slots></slots>
+        <feature>
+          <name>Ability Score Improvement</name>
+          <text>When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.</text>
+          <text>If your DM uses the optional Feats, you can instead take a feat.</text>
+        </feature>
+      </autolevel>
+
+      <autolevel level="5">
+        <slots></slots>
+        <feature>
+          <name>Extra Attack</name>
+          <text>Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.</text>
+        </feature>
+        <feature>
+          <name>Fast Movement</name>
+          <text>Starting at 5th level, your speed increases by 10 feet while you aren't wearing heavy armor.</text>
+          <modifier category="bonus">speed +10</modifier>
+        </feature>
+      </autolevel>
+
+      <autolevel level="6">
+        <feature optional="YES">
+          <name>Mindless Rage (Path of the Berserker)</name>
+          <text>Beginning at 6th level, you can't be charmed or frightened while raging. If you are charmed or frightened when you enter your rage, the effect is suspended for the duration of the rage.</text>
+        </feature>
+        <feature optional="YES">
+          <name>Aspect of the Beast (Path of the Totem Warrior)</name>
+          <text>At 6th level, you gain a magical benefit based on the totem animal of your choice. You can choose the same animal you selected at 3rd level or a different one.</text>
+        </feature>
+        <feature optional="YES">
+          <name>Aspect of the Beast: Bear</name>
+          <text>You gain the might of a bear. Your carrying capacity (including maximum load and maximum lift) is doubled, and you have advantage on Strength checks made to push, pull, lift, or break objects.</text>
+        </feature>
+        <feature optional="YES">
+          <name>Aspect of the Beast: Eagle</name>
+          <text>You gain the eyesight of an eagle. You can see up to 1 mile away with no difficulty, able to discern even fine details as though looking at something no more than 100 feet away from you. Additionally, dim light doesn't impose disadvantage on your Wisdom (Perception) checks.</text>
+        </feature>
+        <feature optional="YES">
+          <name>Aspect of the Beast: Wolf</name>
+          <text>You gain the hunting sensibilities of a wolf. You can track other creatures while traveling at a fast pace, and you can move stealthily while traveling at a normal pace.</text>
+        </feature>
+      </autolevel>
+
+      <autolevel level="7">
+        <slots></slots>
+        <feature>
+          <name>Feral Instinct</name>
+          <text>By 7th level, your instincts are so honed that you have advantage on initiative rolls.</text>
+          <text>Additionally, if you are surprised at the beginning of combat and aren't incapacitated, you can act normally on your first turn, but only if you enter your rage before doing anything else on that turn.</text>
+        </feature>
+      </autolevel>
+
+      <autolevel level="8">
+      </autolevel>
+
+      <autolevel level="9">
+        <slots></slots>
+        <feature>
+          <name>Brutal Critical</name>
+          <text>Beginning at 9th level, you can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack.</text>
+          <text>This increases to two additional dice at 13th level and three additional dice at 17th level.</text>
+        </feature>
+      </autolevel>
+
+      <autolevel level="10">
+        <feature optional="YES">
+          <name>Intimidating Presence (Path of the Berserker)</name>
+          <text>Beginning at 10th level, you can use your action to frighten someone with your menacing presence. When you do so, choose one creature that you can see within 30 feet of you. If the creature can see or hear you, it must succeed on a Wisdom saving throw (DC equal to 8 + your proficiency bonus + your Charisma modifier) or be frightened of you until the end of your next turn. On subsequent turns, you can use your action to extend the duration of this effect on the frightened creature until the end of your next turn. This effect ends if the creature ends its turn out of line of sight or more than 60 feet away from you.</text>
+          <text>If the creature succeeds on its saving throw, you can't use this feature on that creature again for 24 hours.</text>
+          <text> </text>
+          <text>Frightened:</text>
+          <text>&#8226; A frightened creature has disadvantage on ability checks and attack rolls while the source of its fear is within line of sight.</text>
+          <text>&#8226; The creature can't willingly move closer to the source of its fear.</text>
+        </feature>
+        <feature optional="YES">
+          <name>Spirit Walker (Path of the Totem Warrior)</name>
+          <text>At 10th level, you can cast the commune with nature spell, but only as a ritual. When you do so, a spiritual version of one of the animals you chose for Totem Spirit or Aspect of the Beast appears to you to convey the information you seek.</text>
+        </feature>
+      </autolevel>
+
+      <autolevel level="11">
+        <slots></slots>
+        <feature>
+          <name>Relentless Rage</name>
+          <text>Starting at 11th level, your rage can keep you fighting despite grievous wounds. If you drop to 0 hit points while you're raging and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead.</text>
+          <text>Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10.</text>
+        </feature>
+      </autolevel>
+
+      <autolevel level="12">
+      </autolevel>
+
+      <autolevel level="14">
+        <feature optional="YES">
+          <name>Retaliation (Path of the Berserker)</name>
+          <text>Starting at 14th level, when you take damage from a creature that is within 5 feet of you. you can use your reaction to make a melee weapon attack against that creature.</text>
+        </feature>
+        <feature optional="YES">
+          <name>Totemic Attunement (Path of the Totem Warrior)</name>
+          <text>At 14th level, you gain a magical benefit based on a totem animal of your choice. You can choose the same animal you selected previously or a different one.</text>
+        </feature>
+        <feature optional="YES">
+          <name>Totemic Attunement: Bear </name>
+          <text>While you're raging, any creature within 5 feet of you that's hostile to you has disadvantage on attack rolls against targets other than you or another character with this feature. An enemy is immune to this effect if it can't see or hear you or if it can't be frightened.</text>
+        </feature>
+        <feature optional="YES">
+          <name>Totemic Attunement: Eagle</name>
+          <text>While raging, you have a flying speed equal to your current walking speed. This benefit works only in short bursts; you fall if you end your turn in the air and nothing else is holding you aloft.</text>
+        </feature>
+        <feature optional="YES">
+          <name>Totemic Attunement: Wolf</name>
+          <text>While you're raging, you can use a bonus action on your turn to knock a Large or smaller creature prone when you hit it with melee weapon attack.</text>
+          <text> </text>
+          <text>Prone:</text>
+          <text>&#8226; A prone creature's only movement option is to crawl, unless it stands up and thereby ends the condition.</text>
+          <text>&#8226; The creature has disadvantage on attack rolls.</text>
+          <text>&#8226; An attack roll against the creature has advantage if the attacker is within 5 feet of the creature. Otherwise, the attack roll has disadvantage.</text>
+        </feature>
+      </autolevel>
+
+      <autolevel level="15">
+        <slots></slots>
+        <feature>
+          <name>Persistent Rage</name>
+          <text>Beginning at 15th level, your rage is so fierce that it ends early only if you fall unconscious or if you choose to end it.</text>
+        </feature>
+      </autolevel>
+
+      <autolevel level="16">
+      </autolevel>
+
+      <autolevel level="18">
+        <slots></slots>
+        <feature>
+          <name>Indomitable Might</name>
+          <text>Beginning at 18th level, if your total for a Strength check is less than your Strength score, you can use that score in place of the total.</text>
+        </feature>
+      </autolevel>
+
+      <autolevel level="19">
+      </autolevel>
+
+      <autolevel level="20">
+        <slots></slots>
+        <feature>
+          <name>Primal Champion</name>
+          <text>At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4. Your maximum for those scores is now 24.</text>
+          <modifier category="ability score">strength +4</modifier>
+          <modifier category="ability score">constitution +4</modifier>
+        </feature>
+      </autolevel>
+    </class>
+  </character>
+</compendium>

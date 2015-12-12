@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Class.cs" />
+    <Compile Include="Models\Compendium.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Race.cs" />
     <Compile Include="Models\SerializableNotifier.cs" />
@@ -121,6 +122,8 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Tests\CompendiumFull.xml" />
+    <Content Include="Tests\SampleData.xml" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
