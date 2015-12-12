@@ -3,20 +3,125 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:DiceGuide"
+    xmlns:converters="using:DiceGuide.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <converters:DiscreteConverter x:Key="DiscreteConverter" />
+        <Style x:Key="AbilityTitle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="TextTrimming" Value="None"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="LineStackingStrategy" Value="MaxHeight"/>
+            <Setter Property="TextLineBounds" Value="Full"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="4,0" />
+        </Style>
+        <Style x:Key="AbilityContent" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="TextTrimming" Value="None"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="LineStackingStrategy" Value="MaxHeight"/>
+            <Setter Property="TextLineBounds" Value="Full"/>
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="4,0" />
+        </Style>
+    </Page.Resources>
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Pivot >
-            <PivotItem Header="General">
-                <StackPanel>
-                    <TextBlock Text="{x:Bind Path=Character.Name, Mode=OneWay}" />
-                    <TextBlock>
-                        Level <Run Text="{x:Bind Character.Level}" /> <Run Text="{x:Bind Character.Race.Name}" />
-                    </TextBlock>
-                    <TextBlock Text="{x:Bind Path=Character.Text, Mode=OneWay}" />
-                </StackPanel>
+            <PivotItem Style="{ThemeResource PivotTitleContentControlStyle}" Header="General">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ScrollViewer Grid.Row="0">
+                        <StackPanel>
+                            <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Text="{x:Bind Path=Character.Name, Mode=OneWay}" />
+                            <TextBlock Grid.Column="0" Style="{ThemeResource SubtitleTextBlockStyle}" Text="{x:Bind Character.Race.Name}" />
+                            <TextBlock Grid.Column="0" Style="{ThemeResource SubtitleTextBlockStyle}" Text="{x:Bind Character.ClassString}" />
+                            <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Margin="0,12,0,0" Text="Stats" />
+                            <Grid VerticalAlignment="Center" Margin="0,4,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Style="{ThemeResource AbilityTitle}" Text="Str" />
+                                <TextBlock Grid.Row="0" Grid.Column="2" Style="{ThemeResource AbilityTitle}" Text="Dex" />
+                                <TextBlock Grid.Row="0" Grid.Column="3" Style="{ThemeResource AbilityTitle}" Text="Con" />
+                                <TextBlock Grid.Row="0" Grid.Column="4" Style="{ThemeResource AbilityTitle}" Text="Int" />
+                                <TextBlock Grid.Row="0" Grid.Column="5" Style="{ThemeResource AbilityTitle}" Text="Wis" />
+                                <TextBlock Grid.Row="0" Grid.Column="6" Style="{ThemeResource AbilityTitle}" Text="Cha" />
+
+                                <TextBlock Grid.Row="1" Grid.Column="0" Style="{ThemeResource AbilityTitle}" Text="Score" />
+                                <TextBlock Grid.Row="2" Grid.Column="0" Style="{ThemeResource AbilityTitle}" Text="Save" />
+
+                                <TextBlock Grid.Row="1" Grid.Column="1" Style="{ThemeResource AbilityContent}">
+                                    <Run Text="{x:Bind Character.Strength}" /> (<Run Text="{x:Bind Character.StrengthModString}" />)
+                                </TextBlock>
+                                <TextBlock Grid.Row="1" Grid.Column="2" Style="{ThemeResource AbilityContent}">
+                                    <Run Text="{x:Bind Character.Dexterity}" /> (<Run Text="{x:Bind Character.DexterityModString}" />)
+                                </TextBlock>
+                                <TextBlock Grid.Row="1" Grid.Column="3" Style="{ThemeResource AbilityContent}">
+                                    <Run Text="{x:Bind Character.Constitution}" /> (<Run Text="{x:Bind Character.ConstitutionModString}" />)
+                                </TextBlock>
+                                <TextBlock Grid.Row="1" Grid.Column="4" Style="{ThemeResource AbilityContent}">
+                                    <Run Text="{x:Bind Character.Intelligence}" /> (<Run Text="{x:Bind Character.IntelligenceModString}" />)
+                                </TextBlock>
+                                <TextBlock Grid.Row="1" Grid.Column="5" Style="{ThemeResource AbilityContent}">
+                                    <Run Text="{x:Bind Character.Wisdom}" /> (<Run Text="{x:Bind Character.WisdomModString}" />)
+                                </TextBlock>
+                                <TextBlock Grid.Row="1" Grid.Column="6" Style="{ThemeResource AbilityContent}">
+                                    <Run Text="{x:Bind Character.Charisma}" /> (<Run Text="{x:Bind Character.CharismaModString}" />)
+                                </TextBlock>
+
+                            </Grid>
+                        </StackPanel>
+                    </ScrollViewer>
+                    <Grid Grid.Row="1" Margin="0,0,12,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <ProgressBar Grid.Row="0" Height="32" Minimum="0" Maximum="{x:Bind Character.MaxHP}"
+                                     Value="{x:Bind Character.CurrentHP, Mode=TwoWay, Converter={StaticResource DiscreteConverter}}" />
+                        <TextBlock Grid.Row="0" Margin="0,0,16,0" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{ThemeResource SubtitleTextBlockStyle}">
+                            <Run Text="{x:Bind Character.CurrentHP, Mode=OneWay}" /> / <Run Text="{x:Bind Character.MaxHP}" /> HP
+                        </TextBlock>
+                    </Grid>
+                </Grid>
+            </PivotItem>
+            <PivotItem Style="{ThemeResource PivotTitleContentControlStyle}" Header="Combat">
+                <!-- TODO -->
+            </PivotItem>
+            <PivotItem Style="{ThemeResource PivotTitleContentControlStyle}" Header="Spells">
+                <!-- TODO -->
+            </PivotItem>
+            <PivotItem Style="{ThemeResource PivotTitleContentControlStyle}" Header="Items">
+                <!-- TODO -->
+            </PivotItem>
+            <PivotItem Style="{ThemeResource PivotTitleContentControlStyle}" Header="Notes">
+                <TextBlock Margin="0,16,0,0" Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind Path=Character.Text, Mode=OneWay}" />
             </PivotItem>
         </Pivot>
     </Grid>

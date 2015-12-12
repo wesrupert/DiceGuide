@@ -97,6 +97,7 @@
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\Compendium.cs" />
+    <Compile Include="Converters\DiscreteConverter.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Race.cs" />
     <Compile Include="Models\SerializableNotifier.cs" />
