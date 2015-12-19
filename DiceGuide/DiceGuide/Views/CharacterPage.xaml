@@ -52,6 +52,7 @@
                             <TextBlock Grid.Column="0" Style="{ThemeResource SubtitleTextBlockStyle}" Text="{x:Bind Character.Race.Name}" />
                             <TextBlock Grid.Column="0" Style="{ThemeResource SubtitleTextBlockStyle}" Text="{x:Bind Character.ClassString}" />
                             <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Margin="0,12,0,0" Text="Stats" />
+                            <!-- TODO: Proficiency -->
                             <Grid VerticalAlignment="Center" Margin="0,4,0,0">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
@@ -67,6 +68,7 @@
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
+
                                 <TextBlock Grid.Row="0" Grid.Column="1" Style="{ThemeResource AbilityTitle}" Text="Str" />
                                 <TextBlock Grid.Row="0" Grid.Column="2" Style="{ThemeResource AbilityTitle}" Text="Dex" />
                                 <TextBlock Grid.Row="0" Grid.Column="3" Style="{ThemeResource AbilityTitle}" Text="Con" />
@@ -96,7 +98,9 @@
                                     <Run Text="{x:Bind Character.Charisma}" /> (<Run Text="{x:Bind Character.CharismaModString}" />)
                                 </TextBlock>
 
+                                <!-- TODO: Saves -->
                             </Grid>
+                            <!-- TODO: Skills -->
                         </StackPanel>
                     </ScrollViewer>
                     <Grid Grid.Row="1" Margin="0,0,12,0">
@@ -112,13 +116,13 @@
                 </Grid>
             </PivotItem>
             <PivotItem Style="{ThemeResource PivotTitleContentControlStyle}" Header="Combat">
-                <!-- TODO -->
+                <!-- TODO: Combat -->
             </PivotItem>
             <PivotItem Style="{ThemeResource PivotTitleContentControlStyle}" Header="Spells">
-                <!-- TODO -->
+                <!-- TODO: Spells -->
             </PivotItem>
             <PivotItem Style="{ThemeResource PivotTitleContentControlStyle}" Header="Items">
-                <!-- TODO -->
+                <!-- TODO: Items -->
             </PivotItem>
             <PivotItem Style="{ThemeResource PivotTitleContentControlStyle}" Header="Notes">
                 <TextBlock Margin="0,16,0,0" Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind Path=Character.Text, Mode=OneWay}" />
